@@ -28,10 +28,7 @@
   font-size: ($base-size * 2);
   vertical-align: middle;
   position: relative;
-  top: math.div(
-    $base-size,
-    3
-  ); //top: -math.div($base-size, 3); '-' wywala błąd !!!!
+  top: -(math.div($base-size, 3)); //top: -math.div($base-size, 3); '-' wywala błąd !!!!
 }
 
 .cards {
