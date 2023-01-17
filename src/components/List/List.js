@@ -50,6 +50,7 @@ const List = () => {
 
   const addCard = (newCard, columnId) => {
     const columnsUpdated = columns.map((column) => {
+      console.log('colId', column.id);
       if (column.id === columnId)
         return {
           ...column,
@@ -60,14 +61,6 @@ const List = () => {
 
     setColumns(columnsUpdated);
   };
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setColumns([...columns, { id: 4, title: 'Test column' }]);
-
-  //     console.log(columns);
-  //   }, 2000);
-  // }, []);
 
   return (
     <div className={styles.list}>
