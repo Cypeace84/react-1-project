@@ -1,66 +1,67 @@
 import styles from './List.module.scss';
 import Column from '../Column/Column';
 import ColumnForm from '../ColumnForm/ColumnForm';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import shortid from 'shortid';
+// import shortid from 'shortid';
 
 const List = () => {
-  const [columns, setColumns] = useState([
-    {
-      id: 1,
-      title: 'Books',
-      icon: 'book',
-      cards: [
-        { id: 1, title: 'This is Going to Hurt' },
-        { id: 2, title: 'Interpreter of Maladies' },
-      ],
-    },
-    {
-      id: 2,
-      title: 'Movies',
-      icon: 'film',
-      cards: [
-        { id: 1, title: 'Harry Potter' },
-        { id: 2, title: 'Star Wars' },
-      ],
-    },
-    {
-      id: 3,
-      title: 'Games',
-      icon: 'gamepad',
-      cards: [
-        { id: 1, title: 'The Witcher' },
-        { id: 2, title: 'Skyrim' },
-      ],
-    },
-  ]);
+  const columns = useSelector((state) => state.columns);
+  // const [columns, setColumns] = useState([
+  //   {
+  //     id: 1,
+  //     title: 'Books',
+  //     icon: 'book',
+  //     cards: [
+  //       { id: 1, title: 'This is Going to Hurt' },
+  //       { id: 2, title: 'Interpreter of Maladies' },
+  //     ],
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Movies',
+  //     icon: 'film',
+  //     cards: [
+  //       { id: 1, title: 'Harry Potter' },
+  //       { id: 2, title: 'Star Wars' },
+  //     ],
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'Games',
+  //     icon: 'gamepad',
+  //     cards: [
+  //       { id: 1, title: 'The Witcher' },
+  //       { id: 2, title: 'Skyrim' },
+  //     ],
+  //   },
+  // ]);
 
-  const addColumn = (newColumn) => {
-    setColumns([
-      ...columns,
-      {
-        id: shortid(),
-        title: newColumn.title,
-        icon: newColumn.icon,
-        cards: [],
-      },
-    ]);
-  };
+  // const addColumn = (newColumn) => {
+  //   setColumns([
+  //     ...columns,
+  //     {
+  //       id: shortid(),
+  //       title: newColumn.title,
+  //       icon: newColumn.icon,
+  //       cards: [],
+  //     },
+  //   ]);
+  // };
 
-  const addCard = (newCard, columnId) => {
-    const columnsUpdated = columns.map((column) => {
-      console.log('colId', column.id);
-      if (column.id === columnId)
-        return {
-          ...column,
-          cards: [...column.cards, { id: shortid(), title: newCard.title }],
-        };
-      else return column;
-    });
+  // const addCard = (newCard, columnId) => {
+  //   const columnsUpdated = columns.map((column) => {
+  //     console.log('colId', column.id);
+  //     if (column.id === columnId)
+  //       return {
+  //         ...column,
+  //         cards: [...column.cards, { id: shortid(), title: newCard.title }],
+  //       };
+  //     else return column;
+  //   });
 
-    setColumns(columnsUpdated);
-  };
+  // setColumns(columnsUpdated);
+  // };
 
   return (
     <div className={styles.list}>
@@ -76,17 +77,10 @@ const List = () => {
 
       <section className={styles.columns}>
         {columns.map((column) => (
-          <Column
-            key={column.id}
-            id={column.id}
-            title={column.title}
-            icon={column.icon}
-            cards={column.cards}
-            action={addCard}
-          />
+          <Column key={column.id} {...column} />
         ))}
       </section>
-      <ColumnForm action={addColumn} />
+      <ColumnForm />
     </div>
   );
 };
