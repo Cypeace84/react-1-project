@@ -1,6 +1,5 @@
 export const strContains = function (a, b) {
-  if (a.toLowerCase().includes(b.toLowerCase())) return true;
-  else return false;
+  return a.toLowerCase().includes(b.toLowerCase());
 };
 
 // card.title.toLowerCase().includes(text.toLowerCase()
