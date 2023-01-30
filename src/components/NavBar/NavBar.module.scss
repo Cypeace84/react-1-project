@@ -16,7 +16,7 @@
   margin: 0;
 }
 
-.container {
+.nav__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,4 +48,8 @@ a {
 }
 a:hover {
   color: darken($color-light, 20%);
+}
+
+.linkActive {
+  color: $color-warning;
 }
