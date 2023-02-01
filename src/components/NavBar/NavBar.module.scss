@@ -2,7 +2,6 @@
 
 .nav {
   background-color: darken($color-dark, 3%);
-  margin-top: -20px;
 
   .icon {
     font-size: 24px;
@@ -11,15 +10,12 @@
   }
 }
 
-//nie działa//
-.margin {
-  margin: 0;
-}
-
 .nav__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 
   ul {
     display: flex;
@@ -27,29 +23,18 @@
 
     li {
       padding: 10px;
-      // a {
-      //   color: $color-light;
-      //   text-decoration: none;
+      a {
+        color: $color-light;
+        text-decoration: none;
 
-      //   &hover {
-      //     color: red;
-      //   }
-      // }
+        &:hover {
+          color: darken($color-light, 20%);
+        }
+
+        &.linkActive {
+          color: $color-warning;
+        }
+      }
     }
   }
-}
-a {
-  color: $color-light;
-  text-decoration: none;
-
-  // &hover {
-  //   color: darken($color-light, 20%);
-  // }
-}
-a:hover {
-  color: darken($color-light, 20%);
-}
-
-.linkActive {
-  color: $color-warning;
 }

@@ -3,20 +3,20 @@ import { useState } from 'react';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateSearch } from '../../redux/store';
 
-const SearchForm = () => {
-  const [text, setText] = useState('');
+const SearchForm = ({ searchValue }) => {
+  const [text, setText] = useState(searchValue);
   const dispatch = useDispatch();
-  // const search = useSelector((state) => state.search);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     dispatch(updateSearch(text));
     // props.action({ title: title, icon: icon });
     // dispatch({ type: 'UPDATE_SEARCH', payload: text });
-    setText('');
+    // setText('');
   };
 
   return (

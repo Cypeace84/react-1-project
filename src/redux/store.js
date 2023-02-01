@@ -11,11 +11,19 @@ export const getFilteredCards = ({ cards, search }, columnId) =>
     (card) => card.columnId === columnId && strContains(card.title, search)
   );
 
+export const getListById = ({ lists }, listId) =>
+  lists.find((list) => list.id === listId);
+
+export const getColumnsByList = ({ columns }, id) =>
+  columns.filter((column) => column.listId === id);
+
+export const getAllLists = (state) => state.lists;
+
 // action creators
 export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
-
 export const addCard = (payload) => ({ type: 'ADD_CARD', payload });
 export const updateSearch = (payload) => ({ type: 'UPDATE_SEARCH', payload });
+export const addList = (payload) => ({ type: 'ADD_LIST', payload });
 
 const reducer = (state, action) => {
   // if (action.type === 'ADD_COLUMN')
@@ -43,6 +51,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         search: action.payload,
+      };
+
+    case 'ADD_LIST':
+      return {
+        ...state,
+        lists: [...state.lists, { ...action.payload, id: shortid() }],
       };
   }
 };
