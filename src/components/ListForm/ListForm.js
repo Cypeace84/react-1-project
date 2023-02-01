@@ -1,4 +1,4 @@
-import styles from '../ColumnForm/ColumnForm.module.scss';
+import styles from './ListForm.module.scss';
 import { useState } from 'react';
 import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
@@ -22,7 +22,7 @@ const ListForm = ({ listId }) => {
   };
 
   return (
-    <form className={styles.columnForm} onSubmit={handleSubmit}>
+    <form className={styles.listForm} onSubmit={handleSubmit}>
       <div>
         <span className={styles.text}>Title:</span>
         <TextInput
