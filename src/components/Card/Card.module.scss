@@ -10,4 +10,13 @@
   display: flex;
   justify-content: space-between;
   font-weight: bold;
+
+  .button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+}
+.isActive {
+  color: red;
 }
