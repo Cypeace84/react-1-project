@@ -11,6 +11,9 @@ export const getFilteredCards = ({ cards, search }, columnId) =>
     (card) => card.columnId === columnId && strContains(card.title, search)
   );
 
+export const getFavoriteCards = ({ cards }) =>
+  cards.filter((card) => card.isFavorite === true);
+
 export const getListById = ({ lists }, listId) =>
   lists.find((list) => list.id === listId);
 
@@ -26,7 +29,7 @@ export const updateSearch = (payload) => ({ type: 'UPDATE_SEARCH', payload });
 export const addList = (payload) => ({ type: 'ADD_LIST', payload });
 ///
 export const toggleCardFavorite = (payload) => ({
-  type: 'TOGGLE_CARD.FAVORITE',
+  type: 'TOGGLE_CARD_FAVORITE',
   payload,
 });
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toggleCardFavorite } from '../../redux/store';
 import styles from './Card.module.scss';
 import clsx from 'clsx';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Card = (props) => {
   const [isFavorite, setIsFavorite] = useState(props.isFavorite);
@@ -11,10 +11,10 @@ const Card = (props) => {
   // console.log('isFaValue', isFavoriteValue);
 
   const dispatch = useDispatch();
-  dispatch(toggleCardFavorite(props.id));
 
   const toggle = () => {
     setIsFavorite((current) => !current);
+    dispatch(toggleCardFavorite(props.id));
   };
 
   console.log('isFavorite', isFavorite);
