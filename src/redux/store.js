@@ -12,7 +12,7 @@ export const getFilteredCards = ({ cards, search }, columnId) =>
   );
 
 export const getFavoriteCards = ({ cards }) =>
-  cards.filter((card) => card.isFavorite === true);
+  cards.filter((card) => card.isFavorite);
 
 export const getListById = ({ lists }, listId) =>
   lists.find((list) => list.id === listId);

@@ -8,7 +8,8 @@ const Favorite = () => {
   let cards = useSelector((state) => getFavoriteCards(state));
   console.log('cards', cards[0]);
 
-  if (cards[0] === undefined) return <PageTitle> NO CARDS</PageTitle>;
+  // if (cards[0] === undefined) return <PageTitle> NO CARDS</PageTitle>;
+  if (cards.length === 0) return <PageTitle> NO CARDS</PageTitle>;
   return (
     <div>
       <PageTitle>Favorite</PageTitle>
