@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getFavoriteCards } from '../../redux/store';
+import { getFavoriteCards } from '../../redux/cardsRedux';
 import Card from '../Card/Card';
 import PageTitle from '../PageTitle/PageTitle';
 import styles from './Favorite.module.scss';
@@ -9,7 +9,7 @@ const Favorite = () => {
   console.log('cards', cards[0]);
 
   // if (cards[0] === undefined) return <PageTitle> NO CARDS</PageTitle>;
-  if (cards.length === 0) return <PageTitle> NO CARDS</PageTitle>;
+  if (!cards.length) return <PageTitle> NO CARDS</PageTitle>;
   return (
     <div>
       <PageTitle>Favorite</PageTitle>
